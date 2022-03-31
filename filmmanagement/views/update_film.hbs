@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIES CRUD APPLICATION</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        {{!-- Header --}}
+           {{> header }}
+        {{!-- /Header --}}
+
+        <main id="site-main">
+            
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <div class="filter">
+                        <a href="/"><i class="fa-solid fa-angles-left"></i>All Films</a>
+                    </div>
+                </div>
+
+                <div class="form-title text-center">
+                    <h2> Update Film</h2>
+                    <span class="text-light">Use the form to Update a Film</span>
+                </div>
+                {{!-- form handling --}}
+                <form method="GET" action="/update-films" id="update_user">
+                    <div class="new_user">
+                        <div class="form-group">
+                            <label for="name" class="text-light">Name of Film</label>
+                            <input type="hidden" name="id" value="{{film._id}}">
+
+                            <input type="text" name="name" value="{{film.name}}" placeholder="Name of Film">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="year" class="text-light">Year of Release</label>
+                            <input type="text" name="yearOfRelease" value="{{film.yearOfRelease}}" placeholder="Year of Release">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="genre" class="text-light">Genre</label>
+                            <div class="radio inline">
+                                <input type="radio" name="genre" value="Action">
+                                <label for="genre" class="text-light"></label> 
+                                <select name="genre" id="genre">
+                                    <option value="action">Action</option>
+                                    <option value="drama">Drama</option>
+                                    <option value="documentary">Documentary</option>
+                                    <option value="romance">Romance</option>
+                                    <option value="thriller">Thriller</option>
+                                    <option value="horror">Horror</option>
+                                    <option value="comedy">Commedy</option>
+                                    <option value="sci-fi">Sci-Fi</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status" class="text-light">Status</label>
+                            <div class="radio inline">
+                                <input type="radio" id="radio-2" name="status" value="Released"/>
+                                <label for="radio-2" class="radio-label">Released</label> 
+                            </div>
+                            <div class="radio inline">
+                                <input type="radio" id="radio-3" name="status" value="Unreleased"/>
+                                <label for="radio-3" class="radio-label">Unreleased</label> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn text-dark update">Save</button>
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+            </div>
+        </main>
+
+        {{!-- Footer --}}
+           {{> footer }}
+        {{!-- /Footer --}}
+        
+       
+       
+    </div>
+</body>
+</html
